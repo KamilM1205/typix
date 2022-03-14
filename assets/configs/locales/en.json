@@ -1,0 +1,23 @@
+{
+    "locale": {
+        "play": "Play",
+        "settings": "Settings",
+        "exit": "Exit",
+        "dg_start": "Press SPACE to start.",
+        "dg_pause": "PAUSE",
+        "dg_pause_help": "Press ESC to stop game or press SPACE to resume.",
+        "dg_score": "Score: ",
+        "s_game": "Game",
+        "s_video": "Video",
+        "s_audio": "Audio",
+        "s_theme": "Theme",
+        "s_game_language": "Language: ",
+        "s_video_fscreen": "Fullscreen: ",
+        "s_video_samples": "MSAA: ",
+        "s_video_samples_off": "Off",
+        "s_message_title": "WARNING",
+        "s_message_msg": "Some changes require restarting the game.",
+        "s_message_cancel": "Cancel",
+        "s_message_ok": "Ok"
+    }
+}

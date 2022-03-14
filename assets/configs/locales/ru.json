@@ -1,0 +1,23 @@
+{
+    "locale": {
+        "play": "Играть",
+        "settings": "Настройки",
+        "exit": "Выход",
+        "dg_start": "Нажмите ПРОБЕЛ, чтобы начать",
+        "dg_pause": "ПАУЗА",
+        "dg_pause_help": "Нажмите ESC чтобы остановиться. Пробел, чтобы продолжить.",
+        "dg_score": "Счёт: ",
+        "s_game": "Игра",
+        "s_video": "Видео",
+        "s_audio": "Аудио",
+        "s_theme": "Тема",
+        "s_game_language": "Язык: ",
+        "s_video_fscreen": "Полноэкранный режим: ",
+        "s_video_samples": "MSAA: ",
+        "s_video_samples_off": "Выкл",
+        "s_message_title": "Внимание",
+        "s_message_msg": "Некоторые изменения требуют перезапуска игры.",
+        "s_message_cancel": "Отмена",
+        "s_message_ok": "Ок"
+    }
+}
