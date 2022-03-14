@@ -103,32 +103,52 @@ impl DropGameState {
 
     fn draw_stat(&mut self, ctx: &egui::Context, screen: Rect) {
         egui::Area::new("dropgame_stat")
-            .fixed_pos(egui::pos2(screen_width()/95., screen.h + screen_width()/95.))
+            .fixed_pos(egui::pos2(
+                screen.x,
+                screen.h + screen_width() / 95.,
+            ))
             .show(ctx, |ui| {
                 egui::Frame::default()
-                    .margin(egui::style::Margin::same(15.))
+                    .rounding(egui::Rounding::same(15.))
                     .fill(egui::Color32::BLACK)
+                    .margin(egui::style::Margin::same(15.))
                     .show(ui, |ui| {
                         egui::Resize::default()
-                            .fixed_size(egui::vec2(screen_width()/2. - screen_width()/95., screen_height() - screen_height()/95.))
-                            .show(ui, |ui| {});
+                            .fixed_size(egui::vec2(
+                                screen_width() / 2. - 3.* screen_width() / 95.,
+                                screen_height() - (screen.h + (screen_height() / 95.) * 6.),
+                            ))
+                            .show(ui, |ui| {
+                                ui.label(&self.locale.locale["dg_statistics"]);
+                                ui.separator();
+                            });
                     });
-            }); 
+            });
     }
 
     fn draw_game_setup(&mut self, ctx: &egui::Context, screen: Rect) {
-         egui::Area::new("dropgame_setup")
-            .fixed_pos(egui::pos2(0., 0.))
+        egui::Area::new("dropgame_setup")
+            .fixed_pos(egui::pos2(
+                screen_width() / 2. + screen_width() / 95.,
+                screen.h + screen_width() / 95.,
+            ))
             .show(ctx, |ui| {
                 egui::Frame::default()
-                    .margin(egui::style::Margin::same(15.))
+                    .rounding(egui::Rounding::same(15.))
                     .fill(egui::Color32::BLACK)
+                    .margin(egui::style::Margin::same(15.))
                     .show(ui, |ui| {
                         egui::Resize::default()
-                            .fixed_size(egui::vec2(30., 30.))
-                            .show(ui, |ui| {});
+                            .fixed_size(egui::vec2(
+                                screen_width()/2. - (screen_width() - screen.w)*2.,
+                                screen_height() - (screen.h + (screen_height() / 95.) * 6.),
+                            ))
+                            .show(ui, |ui| {
+                                ui.label(&self.locale.locale["dg_settings"]);
+                                ui.separator();
+                            });
                     });
-            }); 
+            });
     }
 
     fn draw_ui(&mut self, dt: f32) -> Rect {
@@ -143,10 +163,10 @@ impl DropGameState {
 
         let sl_dimensions = self.score_label.get_dimensions();
         let mut game_screen_size = Rect::new(
-            screen_width() / 95.,
+            screen_width() / 90.,
             sl_dimensions.height * 2.,
-            screen_width() - (screen_width() / 95.) * 2.,
-            screen_height() / 1.3,
+            screen_width() - (screen_width() / 90.) * 2.,
+            screen_height() / 1.5,
         );
 
         draw_rectangle_lines(

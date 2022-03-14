@@ -7,6 +7,8 @@
         "dg_pause": "PAUSE",
         "dg_pause_help": "Press ESC to stop game or press SPACE to resume.",
         "dg_score": "Score: ",
+        "dg_statistics": "STATISTICS",
+        "dg_settings": "SETTINGS",
         "s_game": "Game",
         "s_video": "Video",
         "s_audio": "Audio",
