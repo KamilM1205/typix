@@ -6,6 +6,7 @@ pub enum TypixState {
     Settings,
 }
 
+#[derive(Eq, PartialEq)]
 pub enum DropGameStates {
     Start,
     Game,

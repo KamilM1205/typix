@@ -1,5 +1,41 @@
 use macroquad::prelude::*;
 
+pub struct OneButtonMessage {
+    ok: String,
+    title: String,
+    message: String,
+    show: bool,
+}
+
+impl OneButtonMessage {
+    pub fn new(ok: impl Into<String>, title: impl Into<String>, message: impl Into<String>) -> Self {
+        Self {
+            ok: ok.into(),
+            title: title.into(),
+            message: message.into(),
+            show: false,
+        }
+    }
+
+    pub fn show(&mut self) {
+        self.show = true;
+    }
+
+    pub fn hide(&mut self) {
+        self.show = false;
+    }
+
+    pub fn is_showed(&self) -> bool {
+        self.show
+    }
+
+    pub fn draw(&mut self, ctx: &egui::Context) {
+        if !self.show {
+            return
+        }
+    }
+}
+
 pub struct TwoButtonMessage {
     ok: String,
     cancel: String,

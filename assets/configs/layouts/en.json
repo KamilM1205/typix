@@ -1,3 +1,6 @@
 {
-    "litterals": "abcdefghclmnop"
+    "litterals": "abcdefghijklmnopqrstuvwxyz",
+    "numbers": "1234567890",
+    "symbols": ".,<>/?[]{}-_=+*&^%$#@!:;`~",
+    "uppercase_litterals": "ABCDEFGHIKLMOPQRSTUVWXYZ"
 }

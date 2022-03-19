@@ -1,5 +1,4 @@
 use crate::entity::label::Label;
-use crate::utils::constants::GOLOS_BOLD;
 
 use macroquad::prelude::*;
 
@@ -21,7 +20,7 @@ impl KeyDrop {
         self.label.draw(self.x, self.y);
     }
 
-    pub fn check_fall(&self, y_max: f32, h: f32) -> bool {
+    pub fn check_fall(&self, y_max: f32) -> bool {
         if self.y >= y_max {
             return true;
         }

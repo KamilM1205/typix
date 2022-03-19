@@ -11,10 +11,6 @@ mod entity;
 mod states;
 mod utils;
 
-fn handle_keys() {
-    if is_key_pressed(KeyCode::F11) {}
-}
-
 fn load_conf() -> Conf {
     let mut path = dirs::config_dir().unwrap();
     path.push("typix/settings.json");
