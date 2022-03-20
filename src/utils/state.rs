@@ -1,5 +1,7 @@
 use std::collections::HashMap;
 
+use crate::entity::fps::FPS;
+
 pub trait State<E>
 where
     E: Eq + std::hash::Hash + std::fmt::Debug + Clone,
@@ -24,6 +26,7 @@ where
     states: HashMap<E, Box<dyn State<E>>>,
     current: Option<E>,
     exit: bool,
+    fps_label: FPS,
 }
 
 impl<E> StateMachineController<E>
@@ -58,11 +61,14 @@ impl<E> StateMachine<E>
 where
     E: Eq + std::hash::Hash + std::fmt::Debug + Clone,
 {
-    pub fn new() -> Self {
+    pub fn new(show_fps: bool) -> Self {
+        let mut fps_label = FPS::default();
+        fps_label.set_show(show_fps);
         Self {
             states: HashMap::new(),
             current: None,
             exit: false,
+            fps_label, 
         }
     }
 
@@ -109,6 +115,8 @@ where
             .get_mut(&self.current.as_ref().unwrap())
             .unwrap()
             .draw(dt, &mut stmc);
+        self.fps_label.draw();
+
         if self.current != Some(stmc.state()) {
             self.current = Some(stmc.state());
             self.states

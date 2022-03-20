@@ -240,8 +240,6 @@ impl DropGameState {
     }
 
     fn draw_ui(&mut self, _dt: f32) -> Rect {
-        draw_text(&get_fps().to_string(), 20., 20., 15., WHITE);
-
         let mut game_screen_size = Rect::new(
             screen_width() / 90.,
             screen_width() / 90.,

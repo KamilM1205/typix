@@ -64,7 +64,7 @@ async fn main() {
     let layout_conf = Layout::load("en.json").unwrap();
     let locale_conf = Locale::load(&format!("{}{}", settings.locale, ".json")).unwrap();
 
-    let mut state_machine = StateMachine::<TypixState>::new();
+    let mut state_machine = StateMachine::<TypixState>::new(settings.show_fps);
 
     state_machine.add_state(TypixState::Main, MainMenuState::new(locale_conf.clone()));
     state_machine.add_state(

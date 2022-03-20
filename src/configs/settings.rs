@@ -8,6 +8,7 @@ pub struct Settings {
     pub window_width: i32,
     pub window_height: i32,
     pub locale: String,
+    pub show_fps: bool,
     #[serde(skip_serializing, skip_deserializing)]
     path: String,
 }
@@ -20,6 +21,7 @@ impl Default for Settings {
             window_width: 640,
             window_height: 480,
             locale: "en".to_owned(),
+            show_fps: false,
             path: String::new(),
         }
     }

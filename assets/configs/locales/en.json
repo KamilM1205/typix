@@ -23,6 +23,7 @@
         "s_audio": "Audio",
         "s_theme": "Theme",
         "s_game_language": "Language: ",
+        "s_game_show_fps": "Show FPS: ",
         "s_video_fscreen": "Fullscreen: ",
         "s_video_samples": "MSAA: ",
         "s_video_samples_off": "Off",

@@ -23,6 +23,7 @@
         "s_audio": "Аудио",
         "s_theme": "Тема",
         "s_game_language": "Язык: ",
+        "s_game_show_fps": "Показывать FPS: ",
         "s_video_fscreen": "Полноэкранный режим: ",
         "s_video_samples": "MSAA: ",
         "s_video_samples_off": "Выкл",
