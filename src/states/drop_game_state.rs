@@ -22,6 +22,7 @@ pub struct DropGameState {
     uppercase_litterals: bool,
     last_time: f64,
     start_time: f64,
+    pause_time: f64,
     key_font: Font,
     layout: Layout,
     keys_count: u32,
@@ -49,6 +50,7 @@ impl DropGameState {
             uppercase_litterals: false,
             last_time: 0.,
             start_time: 0.,
+            pause_time: 0.,
             key_font: load_ttf_font_from_bytes(GOLOS_BOLD).unwrap(),
             layout,
             keys_count: 0,
@@ -151,10 +153,17 @@ impl DropGameState {
                             .show(ui, |ui| {
                                 ui.label(&self.locale.locale["dg_statistics"]);
                                 ui.separator();
+                                let kpm = if self.state == DropGameStates::Game {
+                                    (self.keys_count as f64 / (get_time() - self.start_time)) * 60.
+                                } else if self.state == DropGameStates::Pause {
+                                    (self.keys_count as f64 / (get_time() - (self.start_time + (get_time() - self.pause_time)))) * 60.
+                                } else {
+                                    0.
+                                };
+                                println!("{}", self.start_time);
                                 ui.label(format!(
                                     "{}{:.2}",
-                                    &self.locale.locale["dg_stat_kpm"],
-                                    self.keys_count as f64 / (get_time() - self.start_time)
+                                    &self.locale.locale["dg_stat_kpm"], kpm
                                 ));
                                 ui.label(format!(
                                     "{}{}",
@@ -300,6 +309,7 @@ impl State<TypixState> for DropGameState {
             DropGameStates::Game => {
                 if is_key_pressed(KeyCode::Escape) {
                     self.state = DropGameStates::Pause;
+                    self.pause_time = get_time();
                 }
 
                 let ch = get_char_pressed();
@@ -331,6 +341,7 @@ impl State<TypixState> for DropGameState {
 
                 if is_key_pressed(KeyCode::Space) {
                     self.state = DropGameStates::Game;
+                    self.start_time = self.start_time + (get_time() - self.pause_time);
                 }
             }
             DropGameStates::GOver => {}

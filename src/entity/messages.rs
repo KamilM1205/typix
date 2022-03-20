@@ -8,7 +8,11 @@ pub struct OneButtonMessage {
 }
 
 impl OneButtonMessage {
-    pub fn new(ok: impl Into<String>, title: impl Into<String>, message: impl Into<String>) -> Self {
+    pub fn new(
+        ok: impl Into<String>,
+        title: impl Into<String>,
+        message: impl Into<String>,
+    ) -> Self {
         Self {
             ok: ok.into(),
             title: title.into(),
@@ -31,7 +35,7 @@ impl OneButtonMessage {
 
     pub fn draw(&mut self, ctx: &egui::Context) {
         if !self.show {
-            return
+            return;
         }
     }
 }

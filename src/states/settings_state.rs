@@ -131,8 +131,17 @@ impl SettingsState {
                                                             });
                                                         });
                                                         ui.horizontal(|ui| {
-                                                            ui.label(&self.locale.locale["s_game_show_fps"]);
-                                                            if ui.checkbox(&mut self.settings.show_fps, "").changed() {
+                                                            ui.label(
+                                                                &self.locale.locale
+                                                                    ["s_game_show_fps"],
+                                                            );
+                                                            if ui
+                                                                .checkbox(
+                                                                    &mut self.settings.show_fps,
+                                                                    "",
+                                                                )
+                                                                .changed()
+                                                            {
                                                                 self.changed = true;
                                                                 self.require_restart = true;
                                                             }
@@ -167,7 +176,8 @@ impl SettingsState {
                                                             let msaa_selected =
                                                                 match self.settings.samples {
                                                                     0 => self.locale.locale
-                                                                        ["s_video_samples_off"].clone(),
+                                                                        ["s_video_samples_off"]
+                                                                        .clone(),
                                                                     _ => self
                                                                         .settings
                                                                         .samples
@@ -184,7 +194,8 @@ impl SettingsState {
                                                                 {
                                                                     let v = if i == 0 {
                                                                         self.locale.locale
-                                                                            ["s_video_samples_off"].clone()
+                                                                            ["s_video_samples_off"]
+                                                                            .clone()
                                                                     } else {
                                                                         v.to_string()
                                                                     };

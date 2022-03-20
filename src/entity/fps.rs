@@ -1,7 +1,4 @@
-use crate::{
-    entity::label::Label,
-    utils::constants::GOLOS_REGULAR,
-};
+use crate::{entity::label::Label, utils::constants::GOLOS_REGULAR};
 
 use macroquad::time::get_fps;
 
@@ -16,7 +13,7 @@ impl Default for FPS {
         Self {
             label: Label::new(get_fps().to_string(), GOLOS_REGULAR),
             prefix: String::new(),
-            show: false,     
+            show: false,
         }
     }
 }
@@ -28,7 +25,7 @@ impl FPS {
             prefix: prefix.into(),
             show: false,
         }
-   }
+    }
 
     pub fn set_show(&mut self, show: bool) {
         self.show = show;
@@ -38,7 +35,7 @@ impl FPS {
         if !self.show {
             return;
         }
-        
+
         self.label.set_text(get_fps().to_string());
         let label_dim = self.label.get_dimensions();
         self.label.draw(0., label_dim.height);

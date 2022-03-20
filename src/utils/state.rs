@@ -68,7 +68,7 @@ where
             states: HashMap::new(),
             current: None,
             exit: false,
-            fps_label, 
+            fps_label,
         }
     }
 
